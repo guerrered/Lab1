@@ -6,6 +6,8 @@ int Score[];
 //ind 1,2 for throw 1,2. ind3 for score in that frame
 boolean Strike=false;
 int ThrowNum=0;
+int Frame;
+int frameCheck =0;
 	
 public Scoresheet()
 {
@@ -16,10 +18,19 @@ public Scoresheet()
 public int Throw(int cnt)
 {
 	Score[ThrowNum]=cnt;
-	ThrowNum++;
-	if(ThrowNum%2)
+	incremenetThrow();
 	return cnt;
 }
+
+public void incremenetThrow(){
+	ThrowNum++;
+	frameCheck++;
+	if(frameCheck == 2){
+		ThrowNum++;
+		frameCheck = 0;
+	}
+}
+
 	
 
 
