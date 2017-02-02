@@ -19,6 +19,9 @@ public class ScoresheetTest {
 		@Test
 		public void testOneThrow(){
 			GDP.Throw(7);
+			//score for frame 0
+			assertEquals(7,GDP.getFrame(0).getTotal());
+			//total game score
 			assertEquals(7,GDP.getTotalScore());
 		}
 		
@@ -27,7 +30,11 @@ public class ScoresheetTest {
 		public void testTwoThrows(){
 			GDP.Throw(7);
 			GDP.Throw(2);
+			//score for frame 0
+			assertEquals(9,GDP.getFrame(0).getTotal());
+			//total game score
 			assertEquals(9,GDP.getTotalScore());
+			
 		}
 		
 //		testThreeThrows - test three throws and check scoring for the first two frames and
@@ -37,8 +44,11 @@ public class ScoresheetTest {
 			GDP.Throw(7);
 			GDP.Throw(2);
 			GDP.Throw(9);
-			assertEquals(9, GDP.Score[1].total);
-			assertEquals(9, GDP.Score[2].total);
+			//score for frame 0
+			assertEquals(9, GDP.getFrame(0).getTotal());
+			//score for frame 1
+			assertEquals(9, GDP.getFrame(1).getTotal());
+			//total game score
 			assertEquals(18, GDP.getTotalScore());
 			
 		}
