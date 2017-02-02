@@ -1,9 +1,17 @@
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class ScoresheetTest {
 
+	@Before
+	public void setup()
+	{
+		Scoresheet GDP=new Scoresheet();
+		
+	}
+	
 	@Test
 	public void test() {
 
