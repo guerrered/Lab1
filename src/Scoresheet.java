@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 
 public class Scoresheet {
 
@@ -17,7 +18,8 @@ public void Throw(int cnt)
 {
 	if(frameIndex>10||cnt>10) throw new IllegalArgumentException();
 	//gotta check if there is not strike 2 throw points have to less than 10;
-	assert _wellFormed() : "Throw at the beginning";
+	//assert _wellFormed() : "Throw at the beginning";
+	
 	if(throwNum == 1){
 		Score[frameIndex].firstThrow(cnt);
 		throwNum++;//next throw
@@ -70,11 +72,11 @@ public Frame getFrame(int index)
 }
 
 
- private boolean _wellFormed() {
-	if() return report("");
-	
-	return true;
-}
+// private boolean _wellFormed() {
+//	if() return report("");
+//	
+//	return true;
+//}
 
 
 
@@ -88,7 +90,7 @@ public void clear()
 {
 	totalScore=0;
 	Score= new Frame[10];
-	throwNum=0;
+	throwNum=1;
 	frameIndex=0;
 }
 
