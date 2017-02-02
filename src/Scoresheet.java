@@ -4,13 +4,14 @@ public class Scoresheet {
 
 int totalScore = 0;
 Frame Score[];
-int throwNum = 1;
+int throwNum ;
 int frameIndex;
 
 public Scoresheet()
 {
 	Score= new Frame[10];
 	frameIndex = 0;
+	throwNum=1;
 }
 	
 //throw method that record points to scores sheet
@@ -21,14 +22,18 @@ public void Throw(int cnt)
 	//assert _wellFormed() : "Throw at the beginning";
 	
 	if(throwNum == 1){
+		Score[frameIndex]=new Frame();
 		Score[frameIndex].firstThrow(cnt);
+		
 		throwNum++;//next throw
 	}
 	else{
 		if(!Score[frameIndex].isStrike()){//can't do second throw if strike
 			Score[frameIndex].secondThrow(cnt);
+			//brings back to first throw
+			throwNum--;
 		}
-		throwNum--;//brings back to first throw
+		
 		frameIndex++;//go to next frame
 	}
 }
