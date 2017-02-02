@@ -18,9 +18,9 @@ public Scoresheet()
 //throw method that record points to scores sheet
 public int Throw(int cnt)
 {
-	if(Frame>10) throw new IllegalArgumentException();
+	if(Frame>10||cnt>10) throw new IllegalArgumentException();
 	//gotta check if there is not strike 2 throw points have to less than 10;
-	assert _wellFormed() : "Linked collection well-formed at end of constructor";
+	assert _wellFormed() : "Throw at the beginning";
 	
 	Score[ThrowNum]=cnt;
 	incremenetThrow();
@@ -28,8 +28,14 @@ public int Throw(int cnt)
 	return cnt;
 }
 
+//update score strike after next two round and space next round
+public void update()
+{
+	
+}
 
 //Check whether One frame has been completed
+//need add whether throw is strike
 public void incremenetThrow(){
 	ThrowNum++;
 	frameCheck++;
@@ -40,6 +46,7 @@ public void incremenetThrow(){
 	}
 }
 
+//score for certain frame
 public int getScore()
 {   int cnt=0;
 	
@@ -52,7 +59,6 @@ public int getFrame()
 	return Frame;
 }
 
-//Check whether the 10 frame has complete
 
  private boolean _wellFormed() {
 	if() return report("");
