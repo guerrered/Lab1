@@ -11,14 +11,6 @@ public class ScoresheetTest {
 		Scoresheet GDP=new Scoresheet();
 		
 	}
-	
-	@Test
-	public void test() {
-
-
-//		testStrikeOnLastFrames - test throwing a strike on the 8th, 9th, and 10th frames
-//		testThrowOn11thFrame - ensure throwing on the 11th frame is not allowed (in
-//		some form)
 		
 //		testOneThrow - test a single throw and check scoring for the first frame and game
 		@Test
@@ -66,15 +58,17 @@ public class ScoresheetTest {
 			
 		}
 		
+//		testStrikeOnLastFrames - test throwing a strike on the 8th, 9th, and 10th frames
 		@Test
-		public void testOneThrow(){
+		public void testStrikeOnLastFrames(){
 			
 		}
 		
+//		testThrowOn11thFrame - ensure throwing on the 11th frame is not allowed (in
+//		some form)
 		@Test
-		public void testOneThrow(){
+		public void testThrowOn11thFrame(){
 			
 		}
 	}
 
-}
