@@ -4,24 +4,27 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ScoresheetTest {
-
+	Scoresheet GDP;
 	@Before
 	public void setup()
 	{
-		Scoresheet GDP=new Scoresheet();
+		GDP=new Scoresheet();
 		
 	}
 		
 //		testOneThrow - test a single throw and check scoring for the first frame and game
 		@Test
 		public void testOneThrow(){
-			
+			GDP.Throw(7);
+			assertEquals(7,GDP.getScore());
 		}
 		
 //		testTwoThrows - test two throws and check scoring for the first frame and game
 		@Test
 		public void testTwoThrows(){
-			
+			GDP.Throw(7);
+			GDP.Throw(2);
+			assertEquals(9,GDP.getScore());
 		}
 		
 //		testThreeThrows - test three throws and check scoring for the first two frames and
