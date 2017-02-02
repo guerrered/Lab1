@@ -24,8 +24,12 @@ public void Throw(int cnt)
 	if(throwNum == 1){
 		Score[frameIndex]=new Frame();
 		Score[frameIndex].firstThrow(cnt);
-		
-		throwNum++;//next throw
+		if(cnt==10){
+			frameIndex++;
+		}
+		else{
+			throwNum++;//next throw
+		}
 	}
 	else{
 		if(!Score[frameIndex].isStrike()){//can't do second throw if strike
