@@ -75,34 +75,64 @@ public class ScoresheetTest {
 		public void testStrikeMovesToNextFrame(){
 			GDP.Throw(10);
 			GDP.Throw(2);
-			
-			
+			assertEquals(2,GDP.getFrame(1).getTotal());
 		}
 		
 //		testStrikeCountsNextFrameScores - throw a strike in a frame and make sure its
 //		score is correct (counting the following frames, which should also be completed)
 		@Test
 		public void testStrikeCountsNextFrameScores(){
+			//throw strike
+			GDP.Throw(10);
+			
+			//frame 1
+			GDP.Throw(4);
+			GDP.Throw(4);
+			
+			//frame 2
+			GDP.Throw(6);
+			GDP.Throw(1);
+			
+			assertEquals(25, GDP.getFrame(0).getTotal());
+			assertEquals(40, GDP.getTotalScore());
 			
 		}
 		
 //		testSpareOnLastFrame - test throwing a spare on the 10th frame
 		@Test
 		public void testSpareOnLastFrame(){
-			
+			for(int i = 0; i<=18; i++){
+				GDP.Throw(2);
+			}
+			GDP.Throw(9);
+			GDP.Throw(1);
+			assertEquals(10, GDP.getFrame(9).getTotal());
+			assertEquals(46, GDP.getTotalScore());
 		}
+		
+		
 		
 //		testStrikeOnLastFrames - test throwing a strike on the 8th, 9th, and 10th frames
 		@Test
 		public void testStrikeOnLastFrames(){
-			
+			for(int i = 0; i<=14; i++){
+				GDP.Throw(2);
+			}
+			GDP.Throw(10);
+			GDP.Throw(10);
+			GDP.Throw(10);
+			assertEquals(30, GDP.getFrame(7).getTotal());
+			assertEquals(20, GDP.getFrame(8).getTotal());
+			assertEquals(10, GDP.getFrame(9).getTotal());
 		}
 		
 //		testThrowOn11thFrame - ensure throwing on the 11th frame is not allowed (in
 //		some form)
-		@Test
+		@Test(expected = IllegalArgumentException.class)
 		public void testThrowOn11thFrame(){
-			
+			for(int i = 0; i<=21; i++){
+				GDP.Throw(2);
+			}
 		}
 	}
 
