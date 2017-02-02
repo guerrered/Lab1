@@ -1,62 +1,72 @@
 
 public class Scoresheet {
 
-int scores=0;
-int Score[];
-//ind 1,2 for throw 1,2. ind3 for score in that frame
-boolean Strike=false;
-int ThrowNum=0;
-int Frame;
-int frameCheck =0;
-	
+int totalScore = 0;
+Frame Score[];
+int throwNum = 1;
+int frameIndex;
+
 public Scoresheet()
 {
-	Score= new int[30];
-	
+	Score= new Frame[10];
+	frameIndex = 0;
 }
 	
 //throw method that record points to scores sheet
-public int Throw(int cnt)
+public void Throw(int cnt)
 {
-	if(Frame>10||cnt>10) throw new IllegalArgumentException();
+	if(frameIndex>10||cnt>10) throw new IllegalArgumentException();
 	//gotta check if there is not strike 2 throw points have to less than 10;
 	assert _wellFormed() : "Throw at the beginning";
-	
-	Score[ThrowNum]=cnt;
-	incremenetThrow();
-	
-	return cnt;
+	if(throwNum == 1){
+		Score[frameIndex].firstThrow(cnt);
+		throwNum++;//next throw
+	}
+	else{
+		if(!Score[frameIndex].isStrike()){//can't do second throw if strike
+			Score[frameIndex].secondThrow(cnt);
+		}
+		throwNum--;//brings back to first throw
+		frameIndex++;//go to next frame
+	}
 }
 
-//update score strike after next two round and space next round
+//update score for strikes and spares
 public void update()
 {
-	
-}
-
-//Check whether One frame has been completed
-//need add whether throw is strike
-public void incremenetThrow(){
-	ThrowNum++;
-	frameCheck++;
-	if(frameCheck == 2){
-		ThrowNum++;
-		Frame++;
-		frameCheck = 0;
+	int i = 0;
+	while((i + 2) < frameIndex){//can only update two spots above a strike 
+		if(Score[i].isStrike()){//if i > 8 it'll be outofBounds
+			if(i > 8){
+				Score[i].addtoTotal(Score[i + 1].getTotal());
+			}
+			else{
+				Score[i].addtoTotal(Score[i+1].getTotal() + Score[i + 2].getTotal());
+			}
+		}
+		if(Score[i].isSpare()){
+			Score[i].addtoTotal(Score[i +1].getTotal());
+		}
+		i++;
 	}
 }
 
 //score for certain frame
-public int getScore()
-{   int cnt=0;
-	
-	
-	return cnt;
+public int getTotalScore()
+{   
+	int i = 0; 
+	int tempTotal = 0;
+	while( i < frameIndex){//can only get total up to current frame
+		tempTotal += Score[i].getTotal();
+		i++;
+	}
+	totalScore = tempTotal;
+	return totalScore;
 }
 
-public int getFrame()
+public Frame getFrame(int index)
 {
-	return Frame;
+	return Score[index];
 }
 
 
@@ -76,10 +86,10 @@ private boolean report(String error) {
 //reset
 public void clear()
 {
-	scores=0;
-	Score= new int[30];
-	ThrowNum=0;
-	Frame=0;
+	totalScore=0;
+	Score= new Frame[10];
+	throwNum=0;
+	frameIndex=0;
 }
 
 	
