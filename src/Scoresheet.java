@@ -17,7 +17,7 @@ public Scoresheet()
 //throw method that record points to scores sheet
 public void Throw(int cnt)
 {
-	if(frameIndex>10||cnt>10) throw new IllegalArgumentException();
+	if(frameIndex>9||cnt>10) throw new IllegalArgumentException();
 	//gotta check if there is not strike 2 throw points have to less than 10;
 	//assert _wellFormed() : "Throw at the beginning";
 	

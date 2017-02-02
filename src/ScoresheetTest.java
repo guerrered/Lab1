@@ -101,7 +101,7 @@ public class ScoresheetTest {
 //		testSpareOnLastFrame - test throwing a spare on the 10th frame
 		@Test
 		public void testSpareOnLastFrame(){
-			for(int i = 0; i<=18; i++){
+			for(int i = 0; i<18; i++){
 				GDP.Throw(2);
 			}
 			GDP.Throw(9);
@@ -115,7 +115,7 @@ public class ScoresheetTest {
 //		testStrikeOnLastFrames - test throwing a strike on the 8th, 9th, and 10th frames
 		@Test
 		public void testStrikeOnLastFrames(){
-			for(int i = 0; i<=14; i++){
+			for(int i = 0; i<14; i++){
 				GDP.Throw(2);
 			}
 			GDP.Throw(10);
