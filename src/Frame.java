@@ -11,13 +11,13 @@ public class Frame {
 			throw new IllegalArgumentException();
 		}
 		if(score == 10){
-			throw1 = score;
 			setStrike();
 		}
-		total = throw1;
+		total = throw1 = score;
 	}
 	
 	public void secondThrow(int score){
+		
 		if((score > 10 - throw1) || score < 0){
 			throw new IllegalArgumentException();
 		}

@@ -63,7 +63,7 @@ public int getTotalScore()
 {   
 	int i = 0; 
 	int tempTotal = 0;
-	while( i < frameIndex){//can only get total up to current frame
+	while( i <= frameIndex){//can only get total up to current frame
 		tempTotal += Score[i].getTotal();
 		i++;
 	}
