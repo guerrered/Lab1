@@ -19,6 +19,7 @@ public int Throw(int cnt)
 {
 	Score[ThrowNum]=cnt;
 	incremenetThrow();
+	
 	return cnt;
 }
 
