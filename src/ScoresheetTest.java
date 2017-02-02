@@ -65,6 +65,7 @@ public class ScoresheetTest {
 			GDP.Throw(1);
 			GDP.Throw(2);
 			
+			GDP.update();
 			assertEquals(13, GDP.getFrame(0).getTotal());
 			assertEquals(16, GDP.getTotalScore());
 		}
@@ -73,9 +74,10 @@ public class ScoresheetTest {
 //		throws
 		@Test
 		public void testStrikeMovesToNextFrame(){
+			int cur = GDP.getCurrentFrameIndex();
 			GDP.Throw(10);
 			GDP.Throw(2);
-			assertEquals(2,GDP.getFrame(1).getTotal());
+			assertEquals(cur + 1,GDP.getCurrentFrameIndex());
 		}
 		
 //		testStrikeCountsNextFrameScores - throw a strike in a frame and make sure its

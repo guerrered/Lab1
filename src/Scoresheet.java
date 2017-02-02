@@ -82,6 +82,9 @@ public Frame getFrame(int index)
 }
 
 
+public int getCurrentFrameIndex(){
+	return frameIndex;
+}
 // private boolean _wellFormed() {
 //	if() return report("");
 //	
