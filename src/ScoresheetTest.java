@@ -94,7 +94,7 @@ public class ScoresheetTest {
 			//frame 2
 			GDP.Throw(6);
 			GDP.Throw(1);
-			
+			GDP.update();
 			assertEquals(25, GDP.getFrame(0).getTotal());
 			assertEquals(40, GDP.getTotalScore());
 			
