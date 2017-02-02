@@ -56,6 +56,9 @@ public void update()
 		}
 		i++;
 	}
+	if(Score[i].isSpare() || (Score[i].isStrike() && i == 9)){//spare only adds next frame at frame 9 a strike acts like a spare
+		Score[i].addtoTotal(Score[i +1].getTotal());
+	}
 }
 
 //score for certain frame
@@ -63,7 +66,7 @@ public int getTotalScore()
 {   
 	int i = 0; 
 	int tempTotal = 0;
-	while( i <= frameIndex){//can only get total up to current frame
+	while( i < frameIndex){//can only get total up to current frame
 		tempTotal += Score[i].getTotal();
 		i++;
 	}
