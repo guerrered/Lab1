@@ -57,13 +57,25 @@ public class ScoresheetTest {
 //		score is correct (counting the following frame, which should also be completed)
 		@Test
 		public void testSpareCountsNextFrameScore(){
+			//Frame 0
+			GDP.Throw(3);
+			GDP.Throw(7);
 			
+			//Frame 1
+			GDP.Throw(1);
+			GDP.Throw(2);
+			
+			assertEquals(13, GDP.getFrame(0).getTotal());
+			assertEquals(16, GDP.getTotalScore());
 		}
 		
 //		testStrikeMovesToNextFrame - ensure that a strike frame may not have two
 //		throws
 		@Test
 		public void testStrikeMovesToNextFrame(){
+			GDP.Throw(10);
+			GDP.Throw(2);
+			
 			
 		}
 		
