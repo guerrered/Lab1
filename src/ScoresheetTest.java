@@ -7,7 +7,8 @@ import org.junit.Test;
 
 public class ScoresheetTest {
 	Scoresheet GDP;
-	
+
+//	Beginning of testing
 	@BeforeClass
 	public static void setupclass()
 	{
@@ -137,7 +138,7 @@ public class ScoresheetTest {
 			assertEquals(20, GDP.getFrame(8).getTotal());
 			assertEquals(10, GDP.getFrame(9).getTotal());
 		}
-		
+//      testPerferctGame - test if all throw are strikes, max points is 270 pts		
 		@Test
 		public void testPerferctGame(){
 			int i = 0;
@@ -157,7 +158,36 @@ public class ScoresheetTest {
 				GDP.Throw(2);
 			}
 		}
+	
+//      testStrikeSpaceGame - test points after a strike and space		
+		@Test
+		public void testStrikeSpaceGame()
+		{
+			GDP.Throw(10);
+			GDP.Throw(4);
+			GDP.Throw(6);
+			GDP.Throw(3);
+			GDP.Throw(4);
+			GDP.update();
+			assertEquals(27, GDP.getFrame(0).getTotal());
+			assertEquals(17, GDP.getFrame(1).getTotal());
+		}
 		
+//      testStrikeZeroThrow - test zero after strike.		
+		@Test
+		public void testStrikeZeroThrow()
+		{
+			GDP.Throw(10);
+			GDP.Throw(0);
+			GDP.Throw(0);
+			GDP.Throw(3);
+			GDP.Throw(4);
+			GDP.update();
+			assertEquals(17, GDP.getFrame(0).getTotal());
+			assertEquals(0, GDP.getFrame(1).getTotal());
+		}
+
+//       End of the testing
 		@AfterClass
 		public static void tearDownClass()
 		{
