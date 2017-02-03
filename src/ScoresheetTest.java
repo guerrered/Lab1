@@ -123,6 +123,7 @@ public class ScoresheetTest {
 			GDP.Throw(10);
 			GDP.Throw(10);
 			GDP.Throw(10);
+			GDP.update();
 			assertEquals(30, GDP.getFrame(7).getTotal());
 			assertEquals(20, GDP.getFrame(8).getTotal());
 			assertEquals(10, GDP.getFrame(9).getTotal());

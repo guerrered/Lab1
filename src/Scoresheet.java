@@ -60,7 +60,7 @@ public void update()
 		}
 		i++;
 	}
-	if(Score[i].isSpare() || (Score[i].isStrike() && i == 9)){//spare only adds next frame at frame 9 a strike acts like a spare
+	if(Score[i].isSpare() || (Score[i].isStrike() && i == 8)){//spare only adds next frame at frame 9 a strike acts like a spare
 		Score[i].addtoTotal(Score[i +1].getTotal());
 	}
 }
