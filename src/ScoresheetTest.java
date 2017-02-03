@@ -129,6 +129,17 @@ public class ScoresheetTest {
 			assertEquals(10, GDP.getFrame(9).getTotal());
 		}
 		
+		@Test
+		public void testPerferctGame(){
+			int i = 0;
+			while(i < 10){
+				GDP.Throw(10);
+				i++;
+			}
+			GDP.update();
+			assertEquals(270, GDP.getTotalScore());
+		}
+		
 //		testThrowOn11thFrame - ensure throwing on the 11th frame is not allowed (in
 //		some form)
 		@Test(expected = IllegalArgumentException.class)

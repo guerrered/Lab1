@@ -25,7 +25,7 @@ public void Throw(int cnt)
 		Score[frameIndex]=new Frame();
 		Score[frameIndex].firstThrow(cnt);
 		if(cnt==10){
-			frameIndex++;
+				frameIndex++;
 		}
 		else{
 			throwNum++;//next throw
@@ -37,8 +37,7 @@ public void Throw(int cnt)
 			//brings back to first throw
 			throwNum--;
 		}
-		
-		frameIndex++;//go to next frame
+			frameIndex++;//go to next frame
 	}
 }
 
