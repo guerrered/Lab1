@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+//CS361-401   2017
+//Group Name: Hidden Bit
 
 public class Scoresheet {
 
@@ -88,18 +89,8 @@ public Frame getFrame(int index)
 public int getCurrentFrameIndex(){
 	return frameIndex;
 }
-// private boolean _wellFormed() {
-//	if() return report("");
-//	
-//	return true;
-//}
 
 
-
-private boolean report(String error) {
-	System.out.println("Invariant error found: " + error);
-	return false;
-}
 
 //reset
 public void clear()

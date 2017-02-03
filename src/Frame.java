@@ -1,3 +1,7 @@
+//CS361-401   2017
+//Group Name: Hidden Bit
+
+
 
 public class Frame {
 	int throw1;

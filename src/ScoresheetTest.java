@@ -1,3 +1,6 @@
+//CS361-401   2017
+//Group Name: Hidden Bit
+
 import static org.junit.Assert.*;
 
 import org.junit.AfterClass;
