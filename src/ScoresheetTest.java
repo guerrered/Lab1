@@ -1,10 +1,19 @@
 import static org.junit.Assert.*;
 
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ScoresheetTest {
 	Scoresheet GDP;
+	
+	@BeforeClass
+	public static void setupclass()
+	{
+		System.out.println("Tests stated");
+	}
+	
 	@Before
 	public void setup()
 	{
@@ -148,5 +157,14 @@ public class ScoresheetTest {
 				GDP.Throw(2);
 			}
 		}
+		
+		@AfterClass
+		public static void tearDownClass()
+		{
+			System.out.println("Tests Ended");
+			
+		}
+		
+		
 	}
 
